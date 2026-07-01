@@ -578,8 +578,33 @@
                   </div>
                 </div>
 
-                <!-- Dòng 2: Loại thẻ -->
+                <!-- Dòng 2: Đặc quyền & Loại thẻ -->
                 <div class="query-row row-2">
+                  <div class="form-group privilege-category-group">
+                    <label for="query-privilege-category">Đặc quyền:</label>
+                    <div class="select-wrapper wide-select">
+                      <select id="query-privilege-category">
+                        <option value="chung">Đặc quyền chung</option>
+                        <option value="ctt" selected>Trung Tâm Thẻ</option>
+                        <option value="khut">KHUT</option>
+                        <option value="payroll">Payroll</option>
+                        <option value="khdn">KHDN</option>
+                      </select>
+                      <div class="select-arrow">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="form-group card-type-group">
                     <label for="query-card-type">Loại thẻ:</label>
                     <div class="select-wrapper wide-select">
@@ -612,7 +637,7 @@
                     </label>
                     <div class="select-wrapper mini-select">
                       <select id="query-year">
-                        <option value="all" selected>-- Chọn năm --</option>
+                        <option value="" selected>-- Chọn năm --</option>
                         <option value="2027">2027</option>
                         <option value="2026">2026</option>
                         <option value="2025">2025</option>
@@ -738,11 +763,21 @@
             </div>
           </section>
 
-          <!-- CARD 2: DANH SÁCH YÊU CẦU -->
-          <section class="card request-list-card">
-            <div class="card-header">
-              <h2>Chi tiết đặc quyền</h2>
+          <section class="card card-accordion">
+            <div class="accordion-tabs">
+              <button type="button" class="accordion-tab active" data-target="panel-trungtamthe">Trung Tâm Thẻ</button>
+              <button type="button" class="accordion-tab" data-target="panel-khut">KHUT</button>
+              <button type="button" class="accordion-tab" data-target="panel-payroll">Payroll</button>
+              <button type="button" class="accordion-tab" data-target="panel-khdn">KHDN</button>
             </div>
+          </section>
+
+          <div class="accordion-panels">
+            <div id="panel-trungtamthe" class="accordion-panel active">
+              <section class="card request-list-card">
+                <div class="card-header">
+                  <h2>Chi tiết đặc quyền</h2>
+                </div>
 
             <!-- Bảng Danh sách yêu cầu -->
             <div class="table-container">

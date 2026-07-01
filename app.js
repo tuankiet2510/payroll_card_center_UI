@@ -1414,6 +1414,7 @@ let state = {
   searchType: "cif",
   searchValue: "",
   cardTypeFilter: "001", // Mặc định Visa Credit Signature
+  privilegeCategory: "ctt",
   yearFilter: "",
   quarterFilter: "all", // Mặc định Chọn tất cả quý
   monthFilter: "all", // Mặc định Chọn tất cả tháng
@@ -1432,11 +1433,14 @@ const dom = {
   querySearchType: document.getElementById("query-search-type"),
   querySearchVal: document.getElementById("query-search-val"),
   queryCardType: document.getElementById("query-card-type"),
+  queryPrivilegeCategory: document.getElementById("query-privilege-category"),
   queryYear: document.getElementById("query-year"),
   queryQuarter: document.getElementById("query-quarter"),
   queryMonth: document.getElementById("query-month"),
   queryQuarterGroup: document.querySelector(".quarter-group"),
   queryMonthGroup: document.querySelector(".month-group"),
+  accordionTabs: document.querySelectorAll(".accordion-tab"),
+  accordionPanels: document.querySelectorAll(".accordion-panel"),
   modalQueryError: document.getElementById("modal-query-error"),
 
   // Actions buttons
@@ -2083,6 +2087,51 @@ function handleTabSwitch(tabName) {
 }
 
 // Handle checkbox rows
+function handleAccordionToggle(e) {
+  const clicked = e.currentTarget;
+  const targetId = clicked.getAttribute("data-target");
+  const targetPanel = document.getElementById(targetId);
+  if (!targetPanel) return;
+
+  const isActive = clicked.classList.contains("active");
+  if (isActive) {
+    clicked.classList.toggle("collapsed");
+    targetPanel.classList.toggle("collapsed");
+    return;
+  }
+
+  dom.accordionTabs.forEach((tab) => {
+    tab.classList.remove("active", "collapsed");
+  });
+  dom.accordionPanels.forEach((panel) => {
+    panel.classList.remove("active", "collapsed");
+  });
+
+  clicked.classList.add("active");
+  targetPanel.classList.add("active");
+}
+
+function syncAccordionFromPrivilegeCategory() {
+  const category = state.privilegeCategory;
+  const mapping = {
+    ctt: "panel-trungtamthe",
+    khut: "panel-khut",
+    payroll: "panel-payroll",
+    khdn: "panel-khdn",
+  };
+
+  const targetId = mapping[category];
+  if (!targetId) return;
+
+  dom.accordionTabs.forEach((tab) => {
+    const isTarget = tab.getAttribute("data-target") === targetId;
+    tab.classList.toggle("active", isTarget);
+  });
+  dom.accordionPanels.forEach((panel) => {
+    panel.classList.toggle("active", panel.id === targetId);
+  });
+}
+
 function handleRowSelectChange(e) {
   const id = e.target.getAttribute("data-id");
   const row = dom.requestTableBody.querySelector(`tr[data-id="${id}"]`);
@@ -2142,6 +2191,7 @@ function handleQuerySubmit() {
   state.searchType = dom.querySearchType.value;
   state.searchValue = searchVal;
   state.cardTypeFilter = dom.queryCardType.value;
+  state.privilegeCategory = dom.queryPrivilegeCategory.value;
   state.yearFilter = dom.queryYear.value.trim();
   state.quarterFilter = dom.queryQuarter.value;
   state.monthFilter = dom.queryMonth.value;
@@ -2380,6 +2430,20 @@ function init() {
   if (dom.btnExportExcel) {
     dom.btnExportExcel.addEventListener("click", handleExportExcel);
   }
+  if (dom.queryPrivilegeCategory) {
+    dom.queryPrivilegeCategory.addEventListener("change", () => {
+      state.privilegeCategory = dom.queryPrivilegeCategory.value;
+      syncAccordionFromPrivilegeCategory();
+    });
+  }
+
+  if (dom.accordionTabs) {
+    dom.accordionTabs.forEach((tab) => {
+      tab.addEventListener("click", handleAccordionToggle);
+    });
+  }
+
+  syncAccordionFromPrivilegeCategory();
 
   // Bind enter key search
   const inputs = [dom.queryContractNo, dom.querySearchVal, dom.queryYear];

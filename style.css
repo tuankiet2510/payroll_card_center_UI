@@ -1405,6 +1405,61 @@ body {
   padding-right: 28px !important;
 }
 
+.card-accordion {
+  margin-top: 24px;
+  border: 1px solid var(--neutral-border);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.accordion-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px;
+  border-bottom: 1px solid var(--neutral-border);
+  background: var(--surface);
+}
+
+.accordion-tab {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 10px 18px;
+  background: var(--neutral-surface);
+  color: var(--neutral-text);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.accordion-tab:hover {
+  background: rgba(247, 181, 44, 0.12);
+}
+
+.accordion-tab.active {
+  background: var(--primary-yellow);
+  color: var(--neutral-900);
+  border-color: rgba(247, 181, 44, 0.35);
+}
+
+.accordion-panel {
+  display: none;
+  padding: 24px 0;
+}
+
+.accordion-panel.active {
+  display: block;
+}
+
+.empty-panel-card {
+  padding: 24px;
+  border: 1px solid var(--neutral-border);
+  border-radius: 14px;
+  background: var(--surface-alt);
+  color: var(--neutral-muted);
+}
+
 /* Sidebar button column on the right */
 .query-actions {
   display: flex;
