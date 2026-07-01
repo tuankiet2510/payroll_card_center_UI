@@ -1,0 +1,1171 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HDBank - Quản lý Đặc quyền</title>
+    <!-- Google Fonts: Be Vietnam Pro for clean Vietnamese typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="app-container">
+      <!-- SIDEBAR BÊN TRÁI -->
+      <aside class="sidebar">
+        <div class="sidebar-top-logo">
+          <!-- Icon Logo HD vàng ở góc trên cùng bên trái của sidebar -->
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="9" height="9" rx="1.5" fill="#F7B52C" />
+            <rect x="13" y="2" width="9" height="9" rx="1.5" fill="#F7B52C" opacity="0.8" />
+            <rect x="2" y="13" width="9" height="9" rx="1.5" fill="#F7B52C" opacity="0.8" />
+            <rect x="13" y="13" width="9" height="9" rx="1.5" fill="#F7B52C" opacity="0.6" />
+          </svg>
+        </div>
+
+        <nav class="sidebar-nav">
+          <ul>
+            <!-- Icon placeholder và nhãn tiếng Việt tương ứng hình ảnh -->
+            <li class="nav-item active-logo">
+              <div class="icon-wrapper logo-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#F7B52C"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="icon-wrapper">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="icon-wrapper active-menu-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="12" y1="18" x2="12" y2="12"></line>
+                  <line x1="9" y1="15" x2="15" y2="15"></line>
+                </svg>
+              </div>
+              <span class="nav-label">Tạo yêu cầu</span>
+            </li>
+            <li class="nav-item">
+              <div class="icon-wrapper">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <span class="nav-label">Mở/Đóng Tài khoản</span>
+            </li>
+            <li class="nav-item">
+              <div class="icon-wrapper">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </div>
+              <span class="nav-label">Nộp tiền</span>
+            </li>
+            <li class="nav-item">
+              <div class="icon-wrapper">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </div>
+              <span class="nav-label">Rút tiền</span>
+            </li>
+            <li class="nav-item">
+              <div class="icon-wrapper">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M17 3L21 7L17 11M3 13L7 17L3 21"></path>
+                  <path d="M21 7H7.5A5.5 5.5 0 0 0 2 12.5v0A5.5 5.5 0 0 0 7.5 18H21"></path>
+                </svg>
+              </div>
+              <span class="nav-label">Chuyển tiền</span>
+            </li>
+
+            <li class="nav-item has-submenu">
+              <div class="icon-wrapper">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <span class="nav-label">KH ưu tiên</span>
+
+              <div class="submenu-container">
+                <ul class="submenu-list">
+                  <li><a href="#">Quản lý KH ưu tiên</a></li>
+                  <li><a href="#">Quản lý Đặc quyền</a></li>
+                  <li><a href="#">Trung Tâm Thẻ</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="icon-wrapper">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M19 5h-1.5c-1.38 0-2.5 1.12-2.5 2.5v13.5H9V7.5C9 6.12 7.88 5 6.5 5H5M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"
+                  />
+                </svg>
+              </div>
+              <span class="nav-label">Tiết kiệm</span>
+            </li>
+
+            <li class="nav-item">
+              <div class="icon-wrapper">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M9 14L4 9l5-5M4 9h11a5 5 0 0 1 5 5v3" />
+                </svg>
+              </div>
+              <span class="nav-label">Khiếu hồi</span>
+            </li>
+            <li class="nav-item">
+              <div class="icon-wrapper">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                  <line x1="1" y1="10" x2="23" y2="10"></line>
+                </svg>
+              </div>
+              <span class="nav-label">Thu phí</span>
+            </li>
+            <li class="nav-item">
+              <div class="icon-wrapper">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
+                </svg>
+              </div>
+              <span class="nav-label">Điều quỹ</span>
+            </li>
+            <li class="nav-item">
+              <div class="icon-wrapper">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="12" y1="1" x2="12" y2="23"></line>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <span class="nav-label">Thấu chi</span>
+            </li>
+            <li class="nav-item">
+              <div class="icon-wrapper">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <span class="nav-label">Dịch vụ các Khối</span>
+            </li>
+            <li class="nav-item">
+              <div class="icon-wrapper">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+              </div>
+              <span class="nav-label">Báo cáo</span>
+            </li>
+            <li class="nav-item">
+              <div class="icon-wrapper">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  ></path>
+                </svg>
+              </div>
+              <span class="nav-label">KHDN VIP-Loyalty</span>
+            </li>
+            <li class="nav-item">
+              <div class="icon-wrapper">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path
+                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                  ></path>
+                </svg>
+              </div>
+              <span class="nav-label">ĐK DV Người nước ngoài</span>
+            </li>
+            <li class="nav-item">
+              <div class="icon-wrapper">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+              </div>
+              <span class="nav-label">Tất cả yêu cầu</span>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- CONTAINER NỘI DUNG CHÍNH -->
+      <div class="main-layout">
+        <!-- HEADER PHÍA TRÊN -->
+        <header class="header">
+          <div class="header-left">
+            <!-- Tái tạo logo HDBank chất lượng cao bằng SVG -->
+            <div class="hdbank-logo">
+              <svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Yellow swoosh / wings above -->
+                <path d="M22 6C15 6 10 10 7 14C11 12 17 10 22 10C28 10 32 12 36 15C31 11 27 6 22 6Z" fill="#F7B52C" />
+                <path
+                  d="M24 11C20 11 16 13 13 16C17 15 21 14 25 14C29 14 33 15 36 17C33 14 29 11 24 11Z"
+                  fill="#F7B52C"
+                />
+                <!-- HD Text in Red -->
+                <text
+                  x="45"
+                  y="28"
+                  font-family="'Be Vietnam Pro', sans-serif"
+                  font-weight="800"
+                  font-size="22"
+                  fill="#E11D48"
+                  letter-spacing="-1"
+                >
+                  HD
+                </text>
+                <!-- Bank Text in Dark Grey -->
+                <text
+                  x="78"
+                  y="28"
+                  font-family="'Be Vietnam Pro', sans-serif"
+                  font-weight="600"
+                  font-size="20"
+                  fill="#334155"
+                >
+                  Bank
+                </text>
+              </svg>
+            </div>
+          </div>
+
+          <div class="header-right">
+            <!-- Search Button -->
+            <button class="header-icon-btn search-btn" aria-label="Tìm kiếm">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+
+            <!-- User Info: Khoa + Avatar -->
+            <div class="user-profile">
+              <span class="user-name">Khoa</span>
+              <div class="user-avatar">
+                <!-- Dùng placeholder avatar chuyên nghiệp -->
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="16" cy="16" r="16" fill="#E2E8F0" />
+                  <circle cx="16" cy="12" r="6" fill="#94A3B8" />
+                  <path d="M6 26C6 20.4772 10.4772 16 16 16C21.5228 16 26 20.4772 26 26" fill="#94A3B8" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Info Icon -->
+            <button class="header-icon-btn" aria-label="Thông tin">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </button>
+
+            <!-- Bell Notifications with Badge 90 -->
+            <button class="header-icon-btn notification-btn" aria-label="Thông báo">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span class="badge">90</span>
+            </button>
+
+            <!-- Logout Icon -->
+            <button class="header-icon-btn" aria-label="Đăng xuất">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <!-- NỘI DUNG CHÍNH -->
+        <main class="content-body">
+          <section class="privilege-selector">
+            <button class="privilege-tab active" id="tab-golf">
+              <div class="tab-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17M14 14.66V17M12 2v12.66"
+                  />
+                </svg>
+              </div>
+              <span>Đặc quyền GOLF</span>
+            </button>
+
+            <button class="privilege-tab" id="tab-lounge">
+              <div class="tab-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                </svg>
+              </div>
+              <span>Đặc quyền phòng chờ sân bay/Fast track</span>
+            </button>
+          </section>
+
+          <!-- KHU VỰC TRUY VẤN ƯU ĐÃI (QUERY FORM) -->
+          <section class="card query-card">
+            <div class="query-container">
+              <!-- Left side form fields -->
+              <div class="query-fields">
+                <!-- Dòng 1: Issuing Contract No & Tìm kiếm theo (CIF/CMND) -->
+                <div class="query-row row-1">
+                  <div class="form-group contract-group">
+                    <label for="query-contract-no">Issuing Contract No :</label>
+                    <input type="text" id="query-contract-no" placeholder="Nhập số Contract" />
+                  </div>
+
+                  <div class="form-group search-by-group">
+                    <label for="query-search-type">Tìm kiếm theo:</label>
+                    <div class="search-type-wrapper">
+                      <select id="query-search-type">
+                        <option value="cif">Số CIF</option>
+                        <option value="identity">Số CMND/CCCD</option>
+                      </select>
+                      <div class="select-arrow">
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2.5"
+                        >
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </div>
+                    </div>
+                    <input type="text" id="query-search-val" placeholder="Nhập thông tin tìm kiếm..." />
+                  </div>
+                </div>
+
+                <!-- Dòng 2: Loại thẻ -->
+                <div class="query-row row-2">
+                  <div class="form-group card-type-group">
+                    <label for="query-card-type">Loại thẻ:</label>
+                    <div class="select-wrapper wide-select">
+                      <select id="query-card-type">
+                        <option value="all">-- Chọn --</option>
+                      </select>
+                      <div class="select-arrow">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Dòng 3: Năm, Quý, Tháng -->
+                <div class="query-row row-3">
+                  <div class="form-group year-group">
+                    <label for="query-year">
+                      Năm trao ưu đãi
+                      <span class="text-danger">(*)</span>
+                      :
+                    </label>
+                    <div class="select-wrapper mini-select">
+                      <select id="query-year">
+                        <option value="2027">2027</option>
+                        <option value="2026" selected>2026</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                      </select>
+                      <div class="select-arrow">
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2.5"
+                        >
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group quarter-group">
+                    <label for="query-quarter">
+                      Quý
+                      <span class="text-danger">(*)</span>
+                      :
+                    </label>
+                    <div class="select-wrapper mini-select">
+                      <select id="query-quarter">
+                        <option value="all" selected>Chọn tất cả</option>
+                        <option value="0">Q0</option>
+                        <option value="1">Q1</option>
+                        <option value="2">Q2</option>
+                        <option value="3">Q3</option>
+                      </select>
+                      <div class="select-arrow">
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2.5"
+                        >
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group month-group">
+                    <label for="query-month">
+                      Tháng
+                      <span class="text-danger">(*)</span>
+                      :
+                    </label>
+                    <div class="select-wrapper mini-select">
+                      <select id="query-month">
+                        <option value="all" selected>Chọn tất cả</option>
+                        <option value="-2">-2</option>
+                        <option value="-1">-1</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                      </select>
+                      <div class="select-arrow">
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2.5"
+                        >
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right side query action buttons -->
+              <div class="query-actions">
+                <button class="btn btn-primary yellow-btn" id="btn-export-excel">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 15V3" />
+                  </svg>
+                  <span>Xuất excel</span>
+                </button>
+                <button class="btn btn-primary blue-btn" id="btn-query">
+                  <span>Truy vấn</span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- CARD 2: DANH SÁCH YÊU CẦU -->
+          <section class="card request-list-card">
+            <div class="card-header">
+              <h2>Danh sách yêu cầu</h2>
+            </div>
+
+            <!-- Bảng Danh sách yêu cầu -->
+            <div class="table-container">
+              <table class="data-table" id="request-table">
+                <thead id="request-table-header">
+                  <!-- Được tạo động bằng Javascript -->
+                </thead>
+                <tbody id="request-table-body">
+                  <!-- Được tạo động bằng Javascript -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Phân trang -->
+            <div class="pagination">
+              <div class="pagination-right">
+                <span class="pagination-label">Rows per page:</span>
+                <div class="select-mini">
+                  <select id="rows-per-page" aria-label="Số hàng mỗi trang">
+                    <option value="5">05</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                  </select>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+                <span class="pagination-info" id="pagination-info">1-5 of 13</span>
+                <div class="pagination-buttons">
+                  <button class="pagination-btn" id="btn-prev-page" aria-label="Trang trước">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                    >
+                      <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                  </button>
+                  <button class="pagination-btn" id="btn-next-page" aria-label="Trang sau">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                    >
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- CARD 3: LỊCH SỬ SỬ DỤNG ĐẶC QUYỀN -->
+          <section class="card history-card">
+            <div class="card-header">
+              <h2>Lịch sử sử dụng đặc quyền</h2>
+            </div>
+
+            <div class="table-container">
+              <table class="data-table" id="history-table">
+                <thead id="history-table-header">
+                  <!-- Được tạo động bằng Javascript -->
+                </thead>
+                <tbody id="history-table-body">
+                  <!-- Được tạo động bằng Javascript -->
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+
+        <!-- Sticky footer chứa nút CHUYỂN DUYỆT -->
+        <footer class="sticky-footer-bar">
+          <div
+            class="selected-summary-text"
+            id="selected-summary-text"
+            style="margin-right: auto; font-size: 14px; font-weight: 600; color: var(--neutral-muted)"
+          >
+            Đã chọn:
+            <span id="footer-selected-count" style="color: var(--primary-yellow); font-weight: 700">0</span>
+            yêu cầu
+          </div>
+          <button class="btn btn-primary btn-large font-bold" id="btn-submit-approve">CHUYỂN DUYỆT</button>
+        </footer>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+       MODAL DIALOGS
+       ========================================================================== -->
+
+    <!-- Modal Đăng ký chơi GOLF -->
+    <div class="modal-overlay" id="modal-golf-booking">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3 id="golf-modal-title">ĐĂNG KÝ ĐẶC QUYỀN GOLF</h3>
+          <button class="modal-close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="form-golf-booking">
+            <input type="hidden" id="golf-edit-id" />
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="golf-player">
+                  Họ tên
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="text" id="golf-player" placeholder="Nhập họ và tên..." required />
+              </div>
+              <div class="form-group col-6">
+                <label for="golf-status">
+                  Trạng thái
+                  <span class="text-danger">*</span>
+                </label>
+                <select id="golf-status" required>
+                  <option value="Trong hạn">Trong hạn</option>
+                  <option value="Hết hạn">Hết hạn</option>
+                  <option value="Chờ duyệt">Chờ duyệt</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="golf-card-num">
+                  Số thẻ
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="text" id="golf-card-num" placeholder="Ví dụ: 4129 76** **** 1234" required />
+              </div>
+              <div class="form-group col-6">
+                <label for="golf-acc-num">
+                  Số TK thẻ
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="text" id="golf-acc-num" placeholder="Nhập số tài khoản..." required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-4">
+                <label for="golf-quota-quarter">
+                  Số lượt/quý
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="number" id="golf-quota-quarter" min="0" required />
+              </div>
+              <div class="form-group col-4">
+                <label for="golf-quota-year">
+                  Số lượt/năm
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="number" id="golf-quota-year" min="0" required />
+              </div>
+              <div class="form-group col-4">
+                <label for="golf-used-quota">
+                  Đã sử dụng
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="number" id="golf-used-quota" min="0" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="golf-new-card">Số thẻ mới (sau thay thế)</label>
+                <input type="text" id="golf-new-card" placeholder="Nhập số thẻ mới nếu có..." />
+              </div>
+              <div class="form-group col-6">
+                <label for="golf-date">
+                  Ngày hiệu lực (tính Quý/Năm)
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="date" id="golf-date" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="golf-replace-date">Ngày thay thế</label>
+                <input type="date" id="golf-replace-date" />
+              </div>
+              <div class="form-group col-6">
+                <label for="golf-expiry-date">
+                  Ngày hết hạn hiệu lực
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="date" id="golf-expiry-date" required />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline modal-cancel-btn">HỦY</button>
+          <button class="btn btn-primary" type="submit" form="form-golf-booking">LƯU</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Đăng ký Phòng chờ sân bay / Fast track -->
+    <div class="modal-overlay" id="modal-lounge-booking">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3 id="lounge-modal-title">ĐĂNG KÝ PHÒNG CHỜ SÂN BAY / FAST TRACK</h3>
+          <button class="modal-close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="form-lounge-booking">
+            <input type="hidden" id="lounge-edit-id" />
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="lounge-passenger">
+                  Họ tên
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="text" id="lounge-passenger" placeholder="Nhập họ và tên..." required />
+              </div>
+              <div class="form-group col-6">
+                <label for="lounge-status">
+                  Trạng thái
+                  <span class="text-danger">*</span>
+                </label>
+                <select id="lounge-status" required>
+                  <option value="Trong hạn">Trong hạn</option>
+                  <option value="Hết hạn">Hết hạn</option>
+                  <option value="Chờ duyệt">Chờ duyệt</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="lounge-card-num">
+                  Số thẻ
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="text" id="lounge-card-num" placeholder="Ví dụ: 4129 76** **** 1234" required />
+              </div>
+              <div class="form-group col-6">
+                <label for="lounge-acc-num">
+                  Số TK thẻ
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="text" id="lounge-acc-num" placeholder="Nhập số tài khoản..." required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-4">
+                <label for="lounge-quota-month">
+                  Số lượt/tháng
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="number" id="lounge-quota-month" min="0" required />
+              </div>
+              <div class="form-group col-4">
+                <label for="lounge-quota-year">
+                  Số lượt/năm
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="number" id="lounge-quota-year" min="0" required />
+              </div>
+              <div class="form-group col-4">
+                <label for="lounge-used-quota">
+                  Đã sử dụng
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="number" id="lounge-used-quota" min="0" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="lounge-new-card">Số thẻ mới (sau thay thế)</label>
+                <input type="text" id="lounge-new-card" placeholder="Nhập số thẻ mới nếu có..." />
+              </div>
+              <div class="form-group col-6">
+                <label for="lounge-date">
+                  Ngày hiệu lực (tính Tháng/Năm)
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="date" id="lounge-date" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="lounge-replace-date">Ngày thay thế</label>
+                <input type="date" id="lounge-replace-date" />
+              </div>
+              <div class="form-group col-6">
+                <label for="lounge-expiry-date">
+                  Ngày hết hạn hiệu lực
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="date" id="lounge-expiry-date" required />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline modal-cancel-btn">HỦY</button>
+          <button class="btn btn-primary" type="submit" form="form-lounge-booking">LƯU</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Tải lên danh sách -->
+    <div class="modal-overlay" id="modal-upload-list">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>TẢI LÊN DANH SÁCH YÊU CẦU</h3>
+          <button class="modal-close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="dropzone-area" id="dropzone-area">
+            <input type="file" id="file-input" style="display: none" accept=".xlsx, .xls, .csv" />
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              style="color: var(--neutral-muted); margin-bottom: 12px"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" />
+            </svg>
+            <p style="font-weight: 600; color: var(--neutral-dark); margin-bottom: 4px">
+              Kéo thả file vào đây hoặc bấm để chọn file
+            </p>
+            <p style="font-size: 12px; color: var(--neutral-muted)">Chấp nhận file .xlsx, .xls, .csv (Tối đa 10MB)</p>
+          </div>
+          <div class="selected-file-display" id="selected-file-display" style="display: none">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 12px;
+                background-color: var(--neutral-light);
+                border: 1px solid var(--neutral-border);
+                border-radius: 6px;
+              "
+            >
+              <div style="display: flex; align-items: center; gap: 8px">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  style="color: #10b981"
+                >
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                <div>
+                  <div
+                    id="file-name-text"
+                    style="font-size: 14px; font-weight: 600; color: var(--neutral-dark); word-break: break-all"
+                  >
+                    file_excel.xlsx
+                  </div>
+                  <div id="file-size-text" style="font-size: 12px; color: var(--neutral-muted)">150 KB</div>
+                </div>
+              </div>
+              <button class="action-btn text-danger" id="btn-remove-file" aria-label="Xóa file">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="3 6 5 6 21 6"></polyline>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline modal-cancel-btn">HỦY</button>
+          <button class="btn btn-primary" id="btn-upload-submit" disabled>TẢI LÊN</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Xác nhận xóa yêu cầu -->
+    <div class="modal-overlay" id="modal-confirm-delete">
+      <div class="modal-container modal-small">
+        <div class="modal-header">
+          <h3>XÁC NHẬN XÓA YÊU CẦU</h3>
+          <button class="modal-close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Bạn có chắc chắn muốn xóa yêu cầu đặc quyền này không? Hành động này sẽ không thể hoàn tác.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline modal-cancel-btn">HỦY</button>
+          <button class="btn btn-primary btn-danger-action" id="btn-delete-confirm">XÓA BẢN GHI</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Xác nhận chuyển duyệt -->
+    <div class="modal-overlay" id="modal-confirm-approve">
+      <div class="modal-container modal-small">
+        <div class="modal-header">
+          <h3>XÁC NHẬN CHUYỂN DUYỆT</h3>
+          <button class="modal-close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Bạn đang thực hiện chuyển duyệt
+            <span id="approve-count-text" style="color: var(--primary-red); font-weight: 700">0</span>
+            yêu cầu đặc quyền được chọn.
+          </p>
+          <p style="margin-top: 8px">
+            Các yêu cầu này sẽ được gửi tới Ban kiểm duyệt để thẩm định. Bạn có chắc chắn muốn tiếp tục?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline modal-cancel-btn">HỦY</button>
+          <button class="btn btn-primary" id="btn-approve-confirm">XÁC NHẬN CHUYỂN</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript logic -->
+    <script src="app.js"></script>
+  </body>
+</html>
