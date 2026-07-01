@@ -1414,7 +1414,7 @@ let state = {
   searchType: "cif",
   searchValue: "",
   cardTypeFilter: "001", // Mặc định Visa Credit Signature
-  yearFilter: "2026",
+  yearFilter: "",
   quarterFilter: "all", // Mặc định Chọn tất cả quý
   monthFilter: "all", // Mặc định Chọn tất cả tháng
 };
@@ -1437,6 +1437,7 @@ const dom = {
   queryMonth: document.getElementById("query-month"),
   queryQuarterGroup: document.querySelector(".quarter-group"),
   queryMonthGroup: document.querySelector(".month-group"),
+  modalQueryError: document.getElementById("modal-query-error"),
 
   // Actions buttons
   btnExportExcel: document.getElementById("btn-export-excel"),
@@ -2067,14 +2068,14 @@ function handleTabSwitch(tabName) {
   dom.queryContractNo.value = "";
   dom.querySearchVal.value = "";
   dom.queryCardType.value = "all";
-  dom.queryYear.value = "2026";
+  dom.queryYear.value = "";
   dom.queryQuarter.value = "all";
   dom.queryMonth.value = "all";
 
   state.contractNoFilter = "";
   state.searchValue = "";
   state.cardTypeFilter = "all";
-  state.yearFilter = "2026";
+  state.yearFilter = "";
   state.quarterFilter = "all";
   state.monthFilter = "all";
 
@@ -2130,9 +2131,16 @@ function handleSelectAllChange(e) {
 
 // Unified search execution
 function handleQuerySubmit() {
-  state.contractNoFilter = dom.queryContractNo.value.trim();
+  const contractNo = dom.queryContractNo.value.trim();
+  const searchVal = dom.querySearchVal.value.trim();
+  if (!contractNo && !searchVal) {
+    showQueryValidationError();
+    return;
+  }
+
+  state.contractNoFilter = contractNo;
   state.searchType = dom.querySearchType.value;
-  state.searchValue = dom.querySearchVal.value.trim();
+  state.searchValue = searchVal;
   state.cardTypeFilter = dom.queryCardType.value;
   state.yearFilter = dom.queryYear.value.trim();
   state.quarterFilter = dom.queryQuarter.value;
@@ -2158,6 +2166,8 @@ function handleExportExcel() {
 }
 
 // Modals management
+let queryErrorTimer = null;
+
 function openModal(modal) {
   modal.classList.add("active");
 }
@@ -2165,6 +2175,15 @@ function openModal(modal) {
 // Close helper
 function closeModal(modal) {
   modal.classList.remove("active");
+}
+
+function showQueryValidationError() {
+  if (!dom.modalQueryError) return;
+  if (queryErrorTimer) {
+    clearTimeout(queryErrorTimer);
+  }
+  openModal(dom.modalQueryError);
+  queryErrorTimer = setTimeout(() => closeModal(dom.modalQueryError), 2200);
 }
 
 // Row Actions - Edit record

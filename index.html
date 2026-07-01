@@ -574,7 +574,7 @@
                         </svg>
                       </div>
                     </div>
-                    <input type="text" id="query-search-val" placeholder="Nhập thông tin tìm kiếm..." />
+                    <input required type="text" id="query-search-val" placeholder="Nhập thông tin tìm kiếm..." />
                   </div>
                 </div>
 
@@ -612,8 +612,9 @@
                     </label>
                     <div class="select-wrapper mini-select">
                       <select id="query-year">
+                        <option value="all" selected>-- Chọn năm --</option>
                         <option value="2027">2027</option>
-                        <option value="2026" selected>2026</option>
+                        <option value="2026">2026</option>
                         <option value="2025">2025</option>
                         <option value="2024">2024</option>
                         <option value="2023">2023</option>
@@ -740,7 +741,7 @@
           <!-- CARD 2: DANH SÁCH YÊU CẦU -->
           <section class="card request-list-card">
             <div class="card-header">
-              <h2>Danh sách yêu cầu</h2>
+              <h2>Chi tiết đặc quyền</h2>
             </div>
 
             <!-- Bảng Danh sách yêu cầu -->
@@ -1161,6 +1162,21 @@
         <div class="modal-footer">
           <button class="btn btn-outline modal-cancel-btn">HỦY</button>
           <button class="btn btn-primary" id="btn-approve-confirm">XÁC NHẬN CHUYỂN</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal lỗi truy vấn thiếu thông tin -->
+    <div class="modal-overlay" id="modal-query-error">
+      <div class="modal-container modal-small">
+        <div class="modal-header">
+          <h3>Không thể truy vấn</h3>
+          <button class="modal-close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p style="font-size: 14px; color: var(--neutral-dark); line-height: 1.7;">
+            Cần nhập Số Contract hoặc CIF hoặc CMND/CCCD để thực thi truy vấn.
+          </p>
         </div>
       </div>
     </div>

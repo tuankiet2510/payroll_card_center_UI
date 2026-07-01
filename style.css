@@ -1394,7 +1394,8 @@ body {
 
 .mini-select {
   position: relative;
-  width: 110px;
+  /* width: 110px; */
+  width: 150px;
 }
 
 .mini-select select {
@@ -1487,4 +1488,3 @@ body {
 .data-table td {
   white-space: nowrap; /* Avoid text wrapping on quota tracking columns */
 }
-
