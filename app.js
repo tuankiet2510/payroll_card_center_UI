@@ -1359,12 +1359,20 @@ const loungeHistory = [
     stt: 3,
     fullName: "Trần Văn A",
     usedQuota: 1,
+    duration: "15/02/2026 11:15:00",
+    location: "Phòng chờ SASCO - SGN",
+    updatedAt: "15/02/2026 13:00:00", // Tháng 2/2026
+  },
+  {
+    stt: 4,
+    fullName: "Trần Văn A",
+    usedQuota: 1,
     duration: "20/01/2026 14:30:00",
     location: "Phòng chờ Lotus - HAN",
     updatedAt: "20/01/2026 16:00:00", // Tháng 1/2026
   },
   {
-    stt: 4,
+    stt: 5,
     fullName: "Nguyễn Văn A",
     usedQuota: 8,
     duration: "15/12/2025 19:00:00",
@@ -1372,7 +1380,7 @@ const loungeHistory = [
     updatedAt: "15/12/2025 20:30:00", // Tháng 0/2026 (12/2025)
   },
   {
-    stt: 5,
+    stt: 6,
     fullName: "Trần Văn A",
     usedQuota: 2,
     duration: "10/11/2025 06:30:00",
@@ -1380,7 +1388,7 @@ const loungeHistory = [
     updatedAt: "10/11/2025 08:00:00", // Tháng -1/2026 (11/2025)
   },
   {
-    stt: 6,
+    stt: 7,
     fullName: "Nguyễn Văn A",
     usedQuota: 3,
     duration: "05/10/2025 21:00:00",
@@ -1388,12 +1396,20 @@ const loungeHistory = [
     updatedAt: "05/10/2025 22:15:00", // Tháng -2/2026 (10/2025)
   },
   {
-    stt: 7,
+    stt: 8,
     fullName: "Trần Văn A",
     usedQuota: 12,
     duration: "15/09/2025 12:45:00",
     location: "Phòng chờ Lotus - SGN",
     updatedAt: "15/09/2025 14:00:00", // Tháng 9/2025
+  },
+  {
+    stt: 9,
+    fullName: "Trần Văn A",
+    usedQuota: 1,
+    duration: "15/06/2025 12:45:00",
+    location: "Phòng chờ Lotus - SGN",
+    updatedAt: "15/06/2025 14:00:00", // Tháng 9/2025
   },
 ];
 // ==========================================================================
@@ -1606,6 +1622,7 @@ function getPaginatedDataset(filteredData) {
 }
 
 function refreshUI() {
+  console.log("refreshUI called");
   renderRequestTable();
   renderHistoryTable();
   updatePagination();
@@ -1634,22 +1651,33 @@ function populateCardTypeOptions(tabName) {
 }
 
 function updateQueryFormVisibility() {
+  console.log("updateQueryFormVisibility called, currentTab:", state.currentTab);
+  console.log("queryQuarterGroup:", dom.queryQuarterGroup);
+  console.log("queryMonthGroup:", dom.queryMonthGroup);
+
+  if (!dom.queryQuarterGroup || !dom.queryMonthGroup) {
+    console.error("ERROR: queryQuarterGroup or queryMonthGroup elements not found!");
+    return;
+  }
+
   if (state.currentTab === "golf") {
-    dom.queryQuarterGroup.style.display = "flex";
-    dom.queryMonthGroup.style.display = "none";
+    dom.queryQuarterGroup.style.setProperty("display", "flex", "important");
+    dom.queryMonthGroup.style.setProperty("display", "none", "important");
     dom.queryMonth.value = "all";
+    console.log("Current Tab: Golf - QUARTER shown, MONTH hidden");
     state.monthFilter = "all";
     if (!state.quarterFilter) state.quarterFilter = "all";
     dom.queryQuarter.value = state.quarterFilter;
     populateCardTypeOptions("golf");
   } else {
-    dom.queryQuarterGroup.style.display = "none";
-    dom.queryMonthGroup.style.display = "flex";
+    dom.queryQuarterGroup.style.setProperty("display", "none", "important");
+    dom.queryMonthGroup.style.setProperty("display", "flex", "important");
     if (!state.monthFilter) state.monthFilter = "all";
     dom.queryMonth.value = state.monthFilter;
     dom.queryQuarter.value = "all";
     state.quarterFilter = "all";
     populateCardTypeOptions("lounge");
+    console.log("Current Tab: Lounge - QUARTER hidden, MONTH shown");
   }
 }
 
@@ -2034,7 +2062,18 @@ function updatePagination() {
 
 function updateFooterSelectedCount() {
   const count = state.selectedIds.size;
-  dom.footerSelectedCount.textContent = count;
+  if (dom.footerSelectedCount) {
+    dom.footerSelectedCount.textContent = count;
+  }
+
+  const footerEl = document.querySelector(".sticky-footer");
+  if (footerEl) {
+    if (count > 0) {
+      footerEl.classList.add("active");
+    } else {
+      footerEl.classList.remove("active");
+    }
+  }
 }
 
 function formatDateString(dateStr) {
@@ -2054,6 +2093,7 @@ function generateRandomId() {
 
 // Switch tabs Golf <-> Lounge (airport)
 function handleTabSwitch(tabName) {
+  console.log("handleTabSwitch called with tabName:", tabName);
   if (state.currentTab === tabName) return;
 
   state.currentTab = tabName;
@@ -2477,7 +2517,9 @@ function init() {
   });
 
   // Bind Approve submit button in footer
-  dom.btnSubmitApprove.addEventListener("click", handleOpenApproveModal);
+  if (dom.btnSubmitApprove) {
+    dom.btnSubmitApprove.addEventListener("click", handleOpenApproveModal);
+  }
 
   // Close modals listeners
   document.querySelectorAll(".modal-close-btn, .modal-cancel-btn").forEach((btn) => {
@@ -2490,12 +2532,12 @@ function init() {
   });
 
   // Bind forms submit handlers
-  dom.formGolfBooking.addEventListener("submit", handleGolfFormSubmit);
-  dom.formLoungeBooking.addEventListener("submit", handleLoungeFormSubmit);
+  if (dom.formGolfBooking) dom.formGolfBooking.addEventListener("submit", handleGolfFormSubmit);
+  if (dom.formLoungeBooking) dom.formLoungeBooking.addEventListener("submit", handleLoungeFormSubmit);
 
   // Modal confirmations handlers
-  dom.btnDeleteConfirm.addEventListener("click", handleConfirmDelete);
-  dom.btnApproveConfirm.addEventListener("click", handleConfirmApprove);
+  if (dom.btnDeleteConfirm) dom.btnDeleteConfirm.addEventListener("click", handleConfirmDelete);
+  if (dom.btnApproveConfirm) dom.btnApproveConfirm.addEventListener("click", handleConfirmApprove);
 
   // Render initial UI state
   refreshUI();
@@ -2503,4 +2545,3 @@ function init() {
 
 // Start application
 document.addEventListener("DOMContentLoaded", init);
-init();
