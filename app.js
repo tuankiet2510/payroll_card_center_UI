@@ -1455,6 +1455,9 @@ const dom = {
   queryMonth: document.getElementById("query-month"),
   queryQuarterGroup: document.querySelector(".quarter-group"),
   queryMonthGroup: document.querySelector(".month-group"),
+  queryContractGroup: document.querySelector(".contract-group"),
+  queryCardTypeGroup: document.querySelector(".card-type-group"),
+  queryYearGroup: document.querySelector(".year-group"),
   accordionTabs: document.querySelectorAll(".accordion-tab"),
   accordionPanels: document.querySelectorAll(".accordion-panel"),
   modalQueryError: document.getElementById("modal-query-error"),
@@ -1651,33 +1654,43 @@ function populateCardTypeOptions(tabName) {
 }
 
 function updateQueryFormVisibility() {
-  console.log("updateQueryFormVisibility called, currentTab:", state.currentTab);
-  console.log("queryQuarterGroup:", dom.queryQuarterGroup);
-  console.log("queryMonthGroup:", dom.queryMonthGroup);
+  console.log("updateQueryFormVisibility called, currentTab:", state.currentTab, "category:", state.privilegeCategory);
 
   if (!dom.queryQuarterGroup || !dom.queryMonthGroup) {
     console.error("ERROR: queryQuarterGroup or queryMonthGroup elements not found!");
     return;
   }
 
-  if (state.currentTab === "golf") {
-    dom.queryQuarterGroup.style.setProperty("display", "flex", "important");
-    dom.queryMonthGroup.style.setProperty("display", "none", "important");
-    dom.queryMonth.value = "all";
-    console.log("Current Tab: Golf - QUARTER shown, MONTH hidden");
-    state.monthFilter = "all";
-    if (!state.quarterFilter) state.quarterFilter = "all";
-    dom.queryQuarter.value = state.quarterFilter;
-    populateCardTypeOptions("golf");
+  const isCTT = state.privilegeCategory === "ctt";
+
+  if (isCTT) {
+    if (dom.queryContractGroup) dom.queryContractGroup.style.setProperty("display", "flex", "important");
+    if (dom.queryCardTypeGroup) dom.queryCardTypeGroup.style.setProperty("display", "flex", "important");
+    if (dom.queryYearGroup) dom.queryYearGroup.style.setProperty("display", "flex", "important");
+
+    if (state.currentTab === "golf") {
+      dom.queryQuarterGroup.style.setProperty("display", "flex", "important");
+      dom.queryMonthGroup.style.setProperty("display", "none", "important");
+      dom.queryMonth.value = "all";
+      state.monthFilter = "all";
+      if (!state.quarterFilter) state.quarterFilter = "all";
+      dom.queryQuarter.value = state.quarterFilter;
+      populateCardTypeOptions("golf");
+    } else {
+      dom.queryQuarterGroup.style.setProperty("display", "none", "important");
+      dom.queryMonthGroup.style.setProperty("display", "flex", "important");
+      if (!state.monthFilter) state.monthFilter = "all";
+      dom.queryMonth.value = state.monthFilter;
+      dom.queryQuarter.value = "all";
+      state.quarterFilter = "all";
+      populateCardTypeOptions("lounge");
+    }
   } else {
+    if (dom.queryContractGroup) dom.queryContractGroup.style.setProperty("display", "none", "important");
+    if (dom.queryCardTypeGroup) dom.queryCardTypeGroup.style.setProperty("display", "none", "important");
+    if (dom.queryYearGroup) dom.queryYearGroup.style.setProperty("display", "none", "important");
     dom.queryQuarterGroup.style.setProperty("display", "none", "important");
-    dom.queryMonthGroup.style.setProperty("display", "flex", "important");
-    if (!state.monthFilter) state.monthFilter = "all";
-    dom.queryMonth.value = state.monthFilter;
-    dom.queryQuarter.value = "all";
-    state.quarterFilter = "all";
-    populateCardTypeOptions("lounge");
-    console.log("Current Tab: Lounge - QUARTER hidden, MONTH shown");
+    dom.queryMonthGroup.style.setProperty("display", "none", "important");
   }
 }
 
@@ -2474,6 +2487,7 @@ function init() {
     dom.queryPrivilegeCategory.addEventListener("change", () => {
       state.privilegeCategory = dom.queryPrivilegeCategory.value;
       syncAccordionFromPrivilegeCategory();
+      refreshUI();
     });
   }
 
