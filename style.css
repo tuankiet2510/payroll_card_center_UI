@@ -348,8 +348,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-bottom: 100px;
-  /* Space for the sticky bottom bar */
 }
 
 /* Card Styling */
@@ -929,25 +927,6 @@ body {
 .pagination-btn:disabled {
   color: var(--neutral-border);
   cursor: not-allowed;
-}
-
-/* ==========================================================================
-   STICKY FOOTER (CHUYỂN DUYỆT BAR)
-   ========================================================================== */
-.sticky-footer-bar {
-  position: fixed;
-  bottom: 0;
-  left: var(--sidebar-width);
-  right: 0;
-  height: 72px;
-  background-color: var(--bg-card);
-  border-top: 1px solid var(--neutral-border);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 0 24px;
-  z-index: 80;
-  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.03);
 }
 
 /* Submenu KH ưu tiên */
